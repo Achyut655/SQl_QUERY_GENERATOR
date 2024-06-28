@@ -18,7 +18,6 @@ def generate_text():
     return jsonify({
         "output": ans,
     })
-# hello
 
 if __name__ == "__main__":
     app.run(debug=True)
