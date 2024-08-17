@@ -6,6 +6,7 @@ const QueryGenerator = () => {
     const [query, setQuery] = useState('');
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
+    const [sqlQuery, setSqlQuery] = useState(''); // State to store the SQL query
 
     const handleSubmit = async () => {
         setError(null);
@@ -15,6 +16,7 @@ const QueryGenerator = () => {
                 setError(response.data.error);
             } else {
                 setData(response.data);
+                setSqlQuery(response.data.sql_query); // Set SQL query state
             }
         } catch (error) {
             setError('Error generating query');
@@ -31,6 +33,12 @@ const QueryGenerator = () => {
             />
             <button onClick={handleSubmit}>Generate and Execute Query</button>
             {error && <div className="error">{error}</div>}
+            {sqlQuery && (
+                <div className="sql-query">
+                    <h2>Generated SQL Query:</h2>
+                    <pre>{sqlQuery}</pre>
+                </div>
+            )}
             {data && (
                 <table className="result-table">
                     <thead>
