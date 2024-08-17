@@ -1,10 +1,13 @@
-const mongoose=require("../configs/db");
-const user_signup=mongoose.Schema({
+const mongoose = require("../configs/db");
+
+const userSchema = mongoose.Schema({
     username: { type: String, required: true },
     email: { type: String, required: true },
     password: { type: String, required: true }
-})
-const user=mongoose.model('users',user_signup);
-module.exports={
-    user
-}
+});
+
+const userModel = mongoose.model('users', userSchema);
+
+module.exports = {
+    userModel
+};
