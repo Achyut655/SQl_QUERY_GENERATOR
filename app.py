@@ -5,7 +5,6 @@ import ollama
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
-
 @app.route("/generate", methods=["POST"])
 @cross_origin(origin="http://localhost:3000")
 def generate_text():
