@@ -9,7 +9,7 @@ app.use(cors());
 const userRouter = require("./routes/user.route");
 app.use("/user", userRouter);
 
-app.listen(3000, async () => {
+app.listen(3001, async () => {
     try {
         await mongoose.connection;
         console.log("Connected to DB");
@@ -17,5 +17,5 @@ app.listen(3000, async () => {
         console.log("Unable to connect to DB");
         console.log(error);
     }
-    console.log(`Listening at port ${3000}`);
+    console.log(`Listening at port ${3001}`);
 });
